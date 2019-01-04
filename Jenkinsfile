@@ -22,21 +22,21 @@ pipeline {
     }
     stage('Push result image') {
       steps {
-        withDockerRegistry(credentialsId: 'rahulqelfo', url:'https://registry.hub.docker.com') {
+        withDockerRegistry(credentialsId: 'dockerhub', url:'https://registry.hub.docker.com') {
           sh 'docker push rahulqelfo/result'
         }
       }
     }
     stage('Push vote image') {
       steps {
-        withDockerRegistry(credentialsId: 'rahulqelfo', url:'https://registry.hub.docker.com') {
+        withDockerRegistry(credentialsId: 'dockerhub', url:'https://registry.hub.docker.com') {
           sh 'docker push rahulqelfo/vote'
         }
       }
     }
     stage('Push worker image') {
       steps {
-        withDockerRegistry(credentialsId: 'rahulqelfo', url:'https://registry.hub.docker.com') {
+        withDockerRegistry(credentialsId: 'dockerhub', url:'https://registry.hub.docker.com') {
           sh 'docker push rahulqelfo/worker'
         }
       }
