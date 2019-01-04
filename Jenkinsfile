@@ -22,7 +22,7 @@ pipeline {
     }
     stage('Push result image') {
       steps {
-        withDockerRegistry(credentialsId: 'dockerbuildbot-index.docker.io', url:'') {
+        withDockerRegistry(credentialsId: 'rahulqelfo', url:'') {
           sh 'docker push rahulqelfo/result'
         }
       }
@@ -32,7 +32,7 @@ pipeline {
         branch 'master'
       }
       steps {
-        withDockerRegistry(credentialsId: 'dockerbuildbot-index.docker.io', url:'') {
+        withDockerRegistry(credentialsId: 'rahulqelfo', url:'') {
           sh 'docker push rahulqelfo/vote'
         }
       }
@@ -42,7 +42,7 @@ pipeline {
         branch 'master'
       }
       steps {
-        withDockerRegistry(credentialsId: 'dockerbuildbot-index.docker.io', url:'') {
+        withDockerRegistry(credentialsId: 'rahulqelfo', url:'') {
           sh 'docker push rahulqelfo/worker'
         }
       }
