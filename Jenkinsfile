@@ -7,7 +7,10 @@ pipeline {
   stages {
     stage('Build result') {
       steps {
-        sh 'docker build -t rahulqelfo/result ./result'
+       script {
+          app = docker.build("rahulqelfo/result") 
+             } 
+          sh 'docker build -t rahulqelfo/result ./result'
       }
     } 
     stage('Build vote') {
@@ -22,9 +25,11 @@ pipeline {
     }
     stage('Push result image') {
       steps {
-        withDockerRegistry(credentialsId: 'rahulqelfo', url:'') {
-          sh 'docker push rahulqelfo/result'
-        }
+        script {
+			        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+			        app.push("${BUILD_NUMBER}")
+			            app.push("latest")
+			        }
       }
     }
     stage('Push vote image') {
