@@ -7,7 +7,6 @@ pipeline {
   stages {
     stage('Build result') {
       steps {
-          sh 'docker build -t rahulqelfo/result ./result'
 		    script {
                 	app1 = docker.build("rahulqelfo/result")
                 }
@@ -15,7 +14,6 @@ pipeline {
     } 
     stage('Build vote') {
       steps {
-        sh 'docker build -t rahulqelfo/vote ./vote'
 		  script {
                 	app2 = docker.build("rahulqelfo/vote")
                 }
@@ -23,7 +21,6 @@ pipeline {
     }
     stage('Build worker') {
       steps {
-        sh 'docker build -t rahulqelfo/worker ./worker'
 		  script {
                 	app3 = docker.build("rahulqelfo/worker")
                 }
