@@ -22,7 +22,7 @@ pipeline {
     }
     stage('Push result image') {
       steps {
-        withDockerRegistry(credentialsId: 'dockerhub', url:'https://registry.hub.docker.com') {
+        docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
           sh 'docker push rahulqelfo/result'
         }
       }
