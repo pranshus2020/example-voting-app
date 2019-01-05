@@ -29,9 +29,11 @@ pipeline {
     }
     stage('Push vote image') {
       steps {
-        withDockerRegistry(credentialsId: 'dockerhub', url:'https://registry.hub.docker.com') {
+          script{
+          withDockerRegistry(credentialsId: 'dockerhub', url:'https://registry.hub.docker.com') {
           sh 'docker push rahulqelfo/vote'
         }
+         }
       }
     }
     stage('Push worker image') {
