@@ -22,18 +22,18 @@ pipeline {
     }
     stage('Push result image') {
       steps {
+        script {
         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
           sh 'docker push rahulqelfo/result'
         }
+}
       }
     }
     stage('Push vote image') {
       steps {
-          script{
           withDockerRegistry(credentialsId: 'dockerhub', url:'https://registry.hub.docker.com') {
           sh 'docker push rahulqelfo/vote'
         }
-         }
       }
     }
     stage('Push worker image') {
