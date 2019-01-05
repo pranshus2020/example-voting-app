@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('Build result') {
       steps {
-        sh 'docker build -t rahulqelfo/result ./result'
+        sh 'docker build -t registry.hub.docker.com/rahulqelfo/result ./result'
       }
     } 
     stage('Build vote') {
