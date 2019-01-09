@@ -8,7 +8,7 @@ pipeline {
     stage('Build result') {
       steps {
           script {
-                app1 = docker.build("pranshu2020/result", './result')
+                app1 = docker.build("pranshus2020/result", './result')
                 }
       }
     } 
