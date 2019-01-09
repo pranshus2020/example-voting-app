@@ -8,21 +8,21 @@ pipeline {
     stage('Build result') {
       steps {
           script {
-                app1 = docker.build("pranshu2011/result", './result')
+                app1 = docker.build("pranshu2020/result", './result')
                 }
       }
     } 
     stage('Build vote') {
       steps {
            script {
-                app2 = docker.build("pranshu2011/vote", './vote')
+                app2 = docker.build("pranshus2020/vote", './vote')
                 }
       }
     }
     stage('Build worker') {
       steps {
            script {
-                app3 = docker.build("pranshu2011/worker", './worker')
+                app3 = docker.build("pranshus2020/worker", './worker')
                 }
       }
     }
